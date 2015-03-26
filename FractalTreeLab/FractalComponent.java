@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.geom.Line2D;
 import javax.swing.JComponent;
 import java.lang.Math;
+import java.awt.Color;
 
 public class FractalComponent extends JComponent
 {
@@ -30,21 +31,27 @@ public class FractalComponent extends JComponent
 
     public void drawFractalBranch( Graphics2D g2, int angle, double x1, double y1, double x2, double y2)
     {
-        int curAngle = angle - angleMod;
-        int newLength = math.sqrt( math.pow(x2-x1) + math.pow(y2-y1) )*3.0/4.0;
+        double newLength = Math.sqrt( Math.pow(x2-x1, 2 ) + Math.pow(y2-y1, 2 ) )*6.0/7.0;
+        if( newLength > 9 )
+        {
         
-        //determines new leg length
-        int deltaX = (x2-x1)*3.0/4.0;
-        int deltaY = (y2-y1)*3.0/4.0;
-        
-        //Assign the values of the given point
-        int x3 = x2+deltaX;
-        int y3 = y2+deltaY;
-        
-        //Use trigonometry to find (X4,Y4)
-        int x4 = cos(60) * newLength;
-        
-        int newX1
-    
+            double x3 = x2 - (newLength * Math.cos(Math.toRadians(angle+20)));
+            double y3 = y2 - (newLength * Math.sin(Math.toRadians(angle+20)));
+            
+            double x4 = x2 - (newLength * Math.cos(Math.toRadians(angle-20)));
+            double y4 = y2 - (newLength * Math.sin(Math.toRadians(angle-20)));
 
+            Line2D.Double neg = new Line2D.Double(x2,y2,x3,y3);
+            Line2D.Double pos = new Line2D.Double(x2,y2,x4,y4);
+            
+            g2.setColor(Color.RED);
+            g2.draw(neg);
+            g2.setColor(Color.BLUE);
+            g2.draw(pos);
+            
+            drawFractalBranch( g2, angle+20, x2, y2, x3, y3 );
+            drawFractalBranch( g2, angle-20, x2, y2, x4, y4 );
+        }
+    }
+}
 
