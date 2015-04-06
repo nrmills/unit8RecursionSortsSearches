@@ -5,6 +5,7 @@ import java.awt.geom.Line2D;
 import javax.swing.JComponent;
 import java.lang.Math;
 import java.awt.Color;
+import java.util.Random;
 
 public class FractalComponent extends JComponent
 {
@@ -44,12 +45,30 @@ public class FractalComponent extends JComponent
             Line2D.Double neg = new Line2D.Double(x2,y2,x3,y3);
             Line2D.Double pos = new Line2D.Double(x2,y2,x4,y4);
             
-            g2.setColor(Color.RED);
+            Random posGenerator = new Random();
+            
+            int red = posGenerator.nextInt(255);
+            int green = posGenerator.nextInt(255);
+            int blue = posGenerator.nextInt(255);
+            
+            int[] posArray = { red, green, blue };
+            
+            red = posGenerator.nextInt(255);
+            green = posGenerator.nextInt(255);
+            blue = posGenerator.nextInt(255);
+            
+            int[] negArray = { red, green, blue };
+            
+            Color negColor = new Color( negArray[0], negArray[1], negArray[2] );
+            Color posColor = new Color( posArray[0], posArray[1], posArray[2] ); 
+            
+            
+            g2.setColor( negColor ); 
             g2.draw(neg);
-            g2.setColor(Color.BLUE);
+            g2.setColor( posColor );
             g2.draw(pos);
             
-            drawFractalBranch( g2, angle+20, x2, y2, x3, y3 );
+            drawFractalBranch( g2, angle+25, x2, y2, x3, y3 );
             drawFractalBranch( g2, angle-20, x2, y2, x4, y4 );
         }
     }
