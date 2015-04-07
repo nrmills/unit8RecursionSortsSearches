@@ -6,7 +6,7 @@ public class FractalViewer
     private static int HEIGHT = 1080;
     
     private static JFrame frame;
-    public static void main( String[] args )
+    public static void main( String[] args ) throws InterruptedException
     {
         frame = new JFrame();
         
