@@ -14,7 +14,7 @@ public class FractalViewer
         frame.setTitle("Fractal Tree");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        FractalComponent component = new FractalComponent( 90, -20, 840, 1080, 840, 880 );
+        FractalComponent component = new FractalComponent( 90, -20, 840, 1080, 840, 980 );
         frame.add(component);
         
         frame.setVisible(true);

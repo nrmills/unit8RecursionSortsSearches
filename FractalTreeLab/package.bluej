@@ -2,12 +2,12 @@
 dependency1.from=FractalViewer
 dependency1.to=FractalComponent
 dependency1.type=UsesDependency
-objectbench.height=100
+objectbench.height=76
 objectbench.width=658
-package.editor.height=400
+package.editor.height=424
 package.editor.width=560
-package.editor.x=658
-package.editor.y=174
+package.editor.x=599
+package.editor.y=128
 package.numDependencies=1
 package.numTargets=2
 package.showExtends=true
