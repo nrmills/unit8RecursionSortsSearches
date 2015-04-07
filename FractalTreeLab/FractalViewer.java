@@ -6,7 +6,7 @@ public class FractalViewer
     private static int HEIGHT = 1080;
     
     private static JFrame frame;
-    public static void main( String[] args ) throws InterruptedException
+    public static void main( String[] args ) 
     {
         frame = new JFrame();
         
@@ -14,7 +14,7 @@ public class FractalViewer
         frame.setTitle("Fractal Tree");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        FractalComponent component = new FractalComponent( 90, -20, 840, 1080, 840, 980 );
+        FractalComponent component = new FractalComponent( 90, -20, 840, 1000, 840, 850 );
         frame.add(component);
         
         frame.setVisible(true);
